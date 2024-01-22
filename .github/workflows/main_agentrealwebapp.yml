@@ -36,6 +36,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
          repository: Pardhasaradhi54/ServiceRegistry
+         path: main
 
       - name: Set up Java version
         uses: actions/setup-java@v1
