@@ -35,7 +35,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-         repository: /ServiceRegistry
+         repository: Pardhasaradhi54/ServiceRegistry
 
       - name: Set up Java version
         uses: actions/setup-java@v1
