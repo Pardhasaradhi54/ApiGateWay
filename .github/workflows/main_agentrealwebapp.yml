@@ -52,6 +52,54 @@ jobs:
         with:
           name: java-app
           path: '${{ github.workspace }}/target/*.jar'
+
+  build3:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+         repository: Pardhasaradhi54/LoginService
+         ref: main
+         token: ${{ secrets.GH_PAT }}
+
+      - name: Set up Java version
+        uses: actions/setup-java@v1
+        with:
+          java-version: '17'
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v3
+        with:
+          name: java-app
+          path: '${{ github.workspace }}/target/*.jar' 
+
+  build4:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+         repository: Pardhasaradhi54/LandlordServices
+         ref: main
+         token: ${{ secrets.GH_PAT }}
+
+      - name: Set up Java version
+        uses: actions/setup-java@v1
+        with:
+          java-version: '17'
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v3
+        with:
+          name: java-app
+          path: '${{ github.workspace }}/target/*.jar'             
   
   deploy:
     runs-on: ubuntu-latest
