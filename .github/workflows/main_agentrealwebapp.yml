@@ -37,6 +37,7 @@ jobs:
         with:
          repository: Pardhasaradhi54/ServiceRegistry
          ref: main
+         token: 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
 
       - name: Set up Java version
         uses: actions/setup-java@v1
