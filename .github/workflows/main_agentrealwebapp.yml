@@ -119,7 +119,7 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'agentrealwebapp'
-          slot-name: 'Production'
+          slot-name: 'agentrealwebapp-apigateway'
           package: '*ApiGateWay*.jar'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_26D6F30EEB204133BF72677F52DDF999 }}
 
