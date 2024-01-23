@@ -114,11 +114,20 @@ jobs:
         with:
           name: java-app
       
-      - name: Deploy to Azure Web App
+      - name: ApiGateWay Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'agentrealwebapp'
           slot-name: 'Production'
-          package: '*.jar'
+          package: '*ApiGateWay.jar'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_26D6F30EEB204133BF72677F52DDF999 }}
+
+      - name: ServiceRegistry Deploy to Azure Web App
+        id: deploy-to-webapp2
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'agentrealwebapp'
+          slot-name: 'Production'
+          package: '*ServiceRegistry.jar'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_26D6F30EEB204133BF72677F52DDF999 }}   
